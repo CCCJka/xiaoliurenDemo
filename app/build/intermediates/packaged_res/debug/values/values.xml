@@ -7,6 +7,36 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">liuyao</string>
+    <string name="app_name">小六壬</string>
+    <string name="chikou_daan">赤口加大安，办事险和难，失物东北找，婚姻指定难。</string>
+    <string name="chikou_kongwang">赤口加空亡，无病也上床，失物不用找，婚姻不能成。</string>
+    <string name="chikou_liulian">赤口加留连，办事有困难，行人在外走，失物不回还。</string>
+    <string name="chikou_suxi">赤口加速喜，婚姻在自己，失物有着落，办事官事起。</string>
+    <string name="chikou_xiaoji">赤口加小吉，办事自己提，婚姻不能成，失物无信息。</string>
+    <string name="daan_chikou">大安加赤口，办事不顺手，失物不用找，婚姻两分手。</string>
+    <string name="daan_kongwang">大安加空亡，病人要上床，失物无踪影，事事不顺情。</string>
+    <string name="daan_liulian">大安加留连，办事不周全，失物西北去，婚姻晚几天。</string>
+    <string name="daan_suxi">大安加速喜，事事自己起，失物当日见，婚姻自己提。</string>
+    <string name="daan_xiaoji">大安加小吉，事事从己及，失物不出门，婚姻成就地。</string>
+    <string name="kongwang_chikou">空亡加赤口，办事官非有，婚姻难定准，失物往远走。</string>
+    <string name="kongwang_daan">空亡加大安，事事不周全，婚姻从和好，失物反复间。</string>
+    <string name="kongwang_liulian">空亡加留连，办事处处难，婚姻重新定，失物永不还。</string>
+    <string name="kongwang_suxi">空亡加速喜，事事怨自己，婚姻有一定，失物在家里。</string>
+    <string name="kongwang_xiaoji">空亡加小吉，事事有猜疑，婚姻有喜事，失物回家里。</string>
+    <string name="liulian_chikou">留连加赤口，病者死人口，失物准丢失，婚姻两分手。</string>
+    <string name="liulian_daan">留连加大安，办事两分张，婚姻有喜事，先苦后来甜。</string>
+    <string name="liulian_kongwang">留连加空亡，病人准死亡，失物不见面，婚姻两分张。</string>
+    <string name="liulian_suxi">留连加速喜，事事由自己，婚姻有成意，失物三天里。</string>
+    <string name="liulian_xiaoji">留连加小吉，事事不用提，失物东南去，病者出人齐。</string>
+    <string name="suxi_chikou">速喜加赤口，自己往外走，失物往正北，婚姻得勤走。</string>
+    <string name="suxi_daan">速喜加大安，事事都平安，姻姻成全了，占病都相安。</string>
+    <string name="suxi_kongwang">速喜加空亡，婚姻有分张，病者积极治，失物不久见。</string>
+    <string name="suxi_liulian">速喜加留连，婚姻不可言，失物无信息，病人有仙缘。</string>
+    <string name="suxi_xiaoji">速喜加小吉，婚姻有人提，病人当天好，时物在家里。</string>
+    <string name="xiaoji_chikou">小吉加赤口，办事往外走，婚姻有难处，失物丢了手。</string>
+    <string name="xiaoji_daan">小吉加大安，事事两周全，婚姻当日定，失物自己损。</string>
+    <string name="xiaoji_kongwang">小吉加空亡，病人不妥当，失物正东找，婚姻再想想。</string>
+    <string name="xiaoji_liulian">小吉加留连，事事有反还，婚姻有人破，失物上西南。</string>
+    <string name="xiaoji_suxi">小吉加速喜，事事从头起，婚姻能成就，失物在院里。</string>
     <style name="Theme.Liuyao" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>
