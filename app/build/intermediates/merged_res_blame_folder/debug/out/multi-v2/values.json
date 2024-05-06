@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cccjka.liuyao.app-mergeDebugResources-42:/values/values.xml",
+            "outputFile": "com.cccjka.liuren.app-mergeDebugResources-42:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\60e5cc4e08f429b82f50d6ed5fe4f57a\\transformed\\customview-poolingcontainer-1.0.0\\res\\values\\values.xml",

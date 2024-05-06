@@ -1,4 +1,4 @@
-package com.cccjka.liuyao.utils
+package com.cccjka.liuren.utils
 
 import java.text.ParseException
 import java.text.SimpleDateFormat

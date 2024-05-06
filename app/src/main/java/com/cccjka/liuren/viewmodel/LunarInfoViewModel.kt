@@ -1,15 +1,17 @@
-package com.cccjka.liuyao.viewmodel
+package com.cccjka.liuren.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cccjka.liuyao.utils.OkHttpClient
+import com.cccjka.liuren.bean.ResponseData
+import com.cccjka.liuren.utils.OkHttpClient
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class LunarInfoViewModel: ViewModel() {
 
     fun lunarInfo(date: String){
         viewModelScope.launch {
             OkHttpClient.getRequest(date)
         }
+//        return
     }
 }

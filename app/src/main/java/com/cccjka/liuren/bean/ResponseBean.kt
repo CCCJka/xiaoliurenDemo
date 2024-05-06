@@ -1,6 +1,4 @@
-package com.cccjka.liuyao.bean
-
-import java.io.Serializable
+package com.cccjka.liuren.bean
 
 class ResponseBean<T> {
    var code: Int? = 0

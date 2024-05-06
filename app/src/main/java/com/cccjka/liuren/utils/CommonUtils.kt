@@ -1,4 +1,4 @@
-package com.cccjka.liuyao.utils
+package com.cccjka.liuren.utils
 
 
 import java.time.LocalDateTime
@@ -131,7 +131,11 @@ object CommonUtils {
      * 返回年月日
      */
     fun returnYMD(): String{
-
+        val year = calendar.get(Calendar.YEAR)
+        // 這裡要特別注意 Month 是從零開始的，也就是一月會拿到 0
+        val month = calendar.get(Calendar.MONTH)+1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        return "$year-$month-$day"
     }
 }
 

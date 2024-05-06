@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cccjka.liuyao.app-mergeDebugResources-42:/values-lt/values-lt.xml",
+            "outputFile": "com.cccjka.liuren.app-mergeDebugResources-42:/values-lt/values-lt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\5d58eaa02c0b125c90f1060618df2b57\\transformed\\ui-1.4.0\\res\\values-lt\\values-lt.xml",

@@ -1,4 +1,4 @@
-package com.cccjka.liuyao
+package com.cccjka.liuren
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

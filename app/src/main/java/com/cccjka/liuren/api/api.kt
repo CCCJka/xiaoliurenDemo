@@ -1,7 +1,7 @@
-package com.cccjka.liuyao.api
+package com.cccjka.liuren.api
 
-import com.cccjka.liuyao.bean.ResponseBean
-import com.cccjka.liuyao.bean.ResponseData
+import com.cccjka.liuren.bean.ResponseBean
+import com.cccjka.liuren.bean.ResponseData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

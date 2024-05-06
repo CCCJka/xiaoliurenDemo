@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cccjka.liuyao"
+    package="com.cccjka.liuren"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -11,10 +11,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <permission
-        android:name="com.cccjka.liuyao.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.cccjka.liuren.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.cccjka.liuyao.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.cccjka.liuren.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:allowBackup="true"
@@ -27,10 +27,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.Liuyao" >
         <activity
-            android:name="com.cccjka.liuyao.MainActivity"
+            android:name="com.cccjka.liuren.ui.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Liuyao" >
@@ -49,7 +48,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.cccjka.liuyao.androidx-startup"
+            android:authorities="com.cccjka.liuren.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

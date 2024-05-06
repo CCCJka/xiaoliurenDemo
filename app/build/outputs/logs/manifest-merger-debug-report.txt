@@ -102,7 +102,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Admin\.gradle\cach
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:15:9-44
 	android:dataExtractionRules
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:9:9-65
-activity#com.cccjka.liuyao.MainActivity
+activity#com.cccjka.liuren.ui.activity.MainActivity
 ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:17:9-27:20
 	android:label
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:20:13-45
@@ -111,7 +111,7 @@ ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\Andr
 	android:theme
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:21:13-48
 	android:name
-		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:18:13-41
+		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:18:13-53
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
@@ -262,7 +262,7 @@ ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
-permission#com.cccjka.liuyao.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#com.cccjka.liuren.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
@@ -272,7 +272,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
-uses-permission#com.cccjka.liuyao.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#com.cccjka.liuren.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\1d6dbb199e24be8899936a038b75ad4d\transformed\core-1.9.0\AndroidManifest.xml:26:22-94

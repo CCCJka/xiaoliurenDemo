@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.cccjka.liuyao"
+    namespace = "com.cccjka.liuren"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.cccjka.liuyao"
+        applicationId = "com.cccjka.liuren"
         minSdk = 28
         targetSdk = 33
         versionCode = 1

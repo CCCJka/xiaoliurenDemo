@@ -1,4 +1,4 @@
-package com.cccjka.liuyao
+package com.cccjka.liuren
 
 import org.junit.Test
 
