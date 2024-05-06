@@ -1,5 +1,7 @@
 R_DEF: Internal format may change without notice
 local
+array month
+array week
 color black
 color purple_200
 color purple_500
