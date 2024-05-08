@@ -11,20 +11,35 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewModelScope
 import com.cccjka.liuren.bean.ResponseData
+import com.cccjka.liuren.navigation.LunarInfoNavigator
 import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.utils.CommonUtils
+import com.cccjka.liuren.utils.OkHttpClient
 import com.cccjka.liuren.viewmodel.LunarInfoViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import okhttp3.internal.wait
 
-class LunarInfoActivity : ComponentActivity(){
+class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
+
 
     val viewModel: LunarInfoViewModel = LunarInfoViewModel()
 
     var responseData: ResponseData = ResponseData()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
-//        responseData = viewModel.lunarInfo(CommonUtils.returnYMD())
+        viewModel.setNavigator(this)
+        viewModel.request(CommonUtils.returnYMD())
 
         super.onCreate(savedInstanceState)
         setContent {
@@ -33,26 +48,32 @@ class LunarInfoActivity : ComponentActivity(){
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    showCalendar()
+                    showCalendar(responseData)
                 }
             }
         }
     }
+
+    override fun notifyView() {
+        viewModel.getResponseData()
+    }
+
+
 }
 
 
-@Preview
 @Composable
-fun showCalendar(){
+fun showCalendar(responseData: ResponseData){
     Column {
-        showdate()
-
+        showdate(responseData)
     }
 }
 
 @Composable
-fun showdate(){
+fun showdate(responseData: ResponseData){
     Column {
-//        Text(text = "日期" + )
+        Text(text = "农历 ${responseData.LunarDateTime}")
+        Text(text = "宜：${responseData.Yi}")
+        Text(text = "忌：${responseData.Ji}")
     }
 }

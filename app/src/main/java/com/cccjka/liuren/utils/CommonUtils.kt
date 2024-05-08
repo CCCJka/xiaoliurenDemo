@@ -1,9 +1,11 @@
 package com.cccjka.liuren.utils
 
 
+import com.google.gson.Gson
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
+import java.util.concurrent.CountDownLatch
 
 object CommonUtils {
 
@@ -132,10 +134,18 @@ object CommonUtils {
      */
     fun returnYMD(): String{
         val year = calendar.get(Calendar.YEAR)
-        // 這裡要特別注意 Month 是從零開始的，也就是一月會拿到 0
         val month = calendar.get(Calendar.MONTH)+1
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         return "$year-$month-$day"
+    }
+
+    fun <T>toJson(date: T): String{
+        return Gson().toJson(date)
+    }
+
+    inline fun <reified T>fromJson(json: String): T{
+        val result = Gson().fromJson(json, T::class.java)
+        return result
     }
 }
 

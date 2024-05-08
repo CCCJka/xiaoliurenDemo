@@ -1,11 +1,14 @@
 package com.cccjka.liuren.ui.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.Lunar
+import com.cccjka.liuren.utils.OkHttpClient
 import com.cccjka.liuren.viewmodel.MainViewModel
 
 
@@ -32,6 +36,7 @@ class MainActivity : ComponentActivity() {
         val hour = CommonUtils.getResult(getHour % 6)
         val result = CommonUtils.getResult(day,hour)
         super.onCreate(savedInstanceState)
+        val activity = LunarInfoActivity()
         setContent {
             LiuyaoTheme {
                 Surface(
@@ -39,24 +44,28 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    GreetingPreview()
-                    AllView(result = result)
+                    AllView(result = result, click = { Navigation(activity) })
                 }
             }
         }
 
-
-
+    }
+    fun Navigation(activity: Activity){
+        startActivity(Intent(this, activity::class.java))
     }
 }
 
 
 @Composable
-fun AllView(result: String){
+fun AllView(result: String, click: () -> Unit){
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         ShowResult(result = result)
+        Button(onClick = click) {
+            Text(text = "跳转")
+        }
     }
 }
 
@@ -70,7 +79,6 @@ fun ShowResult(result: String){
     Column {
         Text(text = "日时速断：\n $result")
     }
-
 }
 
 @Preview(showBackground = true, showSystemUi = true)
