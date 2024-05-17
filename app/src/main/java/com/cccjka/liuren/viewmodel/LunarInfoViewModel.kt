@@ -1,6 +1,10 @@
 package com.cccjka.liuren.viewmodel
 
 import android.util.Log
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cccjka.liuren.api.api
@@ -11,6 +15,9 @@ import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.OkHttpClient
 import com.google.gson.Gson
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,26 +25,20 @@ import java.net.URL
 
 class LunarInfoViewModel: ViewModel() {
 
-    var responseData: ResponseData = ResponseData()
+    private var responseData: ResponseData = ResponseData()
 
-    var navigator: LunarInfoNavigator? = null
+    private val _uiState = MutableStateFlow(responseData)
+    val uiState: StateFlow<ResponseData> = _uiState.asStateFlow()
 
-    fun lunarInfo(date: String): ResponseData {
-        viewModelScope.launch{
-            val task1 = async {
-                responseData = OkHttpClient.getResult(date)
-            }
-            val finish = task1.await()
-        }
-        return responseData
-    }
+
+    private var navigator: LunarInfoNavigator? = null
 
     fun setNavigator(navigator: LunarInfoNavigator){
-        this.navigator = navigator
+        this.navigator = navigator;
     }
 
     fun getResponseData(): ResponseData{
-        return responseData;
+        return responseData
     }
 
     fun request(date: String){
@@ -63,5 +64,4 @@ class LunarInfoViewModel: ViewModel() {
             }
         })
     }
-
 }

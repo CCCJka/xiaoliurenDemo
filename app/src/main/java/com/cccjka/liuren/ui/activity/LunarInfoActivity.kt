@@ -9,11 +9,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewModelScope
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.navigation.LunarInfoNavigator
+import com.cccjka.liuren.ui.showdate
 import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.OkHttpClient
@@ -30,11 +35,7 @@ import okhttp3.internal.wait
 
 class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
 
-
     val viewModel: LunarInfoViewModel = LunarInfoViewModel()
-
-    var responseData: ResponseData = ResponseData()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -48,32 +49,12 @@ class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    showCalendar(responseData)
+                    showdate(viewModel)
                 }
             }
         }
     }
-
-    override fun notifyView() {
-        viewModel.getResponseData()
-    }
-
-
-}
-
-
-@Composable
-fun showCalendar(responseData: ResponseData){
-    Column {
-        showdate(responseData)
-    }
-}
-
-@Composable
-fun showdate(responseData: ResponseData){
-    Column {
-        Text(text = "农历 ${responseData.LunarDateTime}")
-        Text(text = "宜：${responseData.Yi}")
-        Text(text = "忌：${responseData.Ji}")
+    override fun notifyView(): ResponseData {
+        return viewModel.getResponseData();
     }
 }
