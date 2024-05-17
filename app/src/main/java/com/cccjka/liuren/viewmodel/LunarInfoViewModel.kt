@@ -5,26 +5,34 @@ import androidx.lifecycle.ViewModel
 import com.cccjka.liuren.api.api
 import com.cccjka.liuren.bean.ResponseBean
 import com.cccjka.liuren.bean.ResponseData
+import com.cccjka.liuren.navigation.LunarInfoNavigator
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.OkHttpClient
 import com.google.gson.Gson
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.URL
 
 class LunarInfoViewModel: ViewModel() {
 
-     var responseData: ResponseData = ResponseData()
+    private var responseData: ResponseData = ResponseData()
 
-//    fun lunarInfo(date: String): ResponseData {
-//        viewModelScope.launch{
-//            val task1 = async {
-//                responseData = OkHttpClient.getResult(date)
-//            }
-//            val finish = task1.await()
-//        }
-//        return responseData
-//    }
+    private val _uiState = MutableStateFlow(responseData)
+    val uiState: StateFlow<ResponseData> = _uiState.asStateFlow()
+
+
+    private var navigator: LunarInfoNavigator? = null
+
+    fun setNavigator(navigator: LunarInfoNavigator){
+        this.navigator = navigator;
+    }
+
+    fun getResponseData(): ResponseData{
+        return responseData
+    }
 
     fun request(date: String){
         val url = URL("https://www.36jxs.com/")
@@ -49,5 +57,4 @@ class LunarInfoViewModel: ViewModel() {
             }
         })
     }
-
 }
