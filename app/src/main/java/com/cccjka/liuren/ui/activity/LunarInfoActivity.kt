@@ -14,26 +14,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewModelScope
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.navigation.LunarInfoNavigator
 import com.cccjka.liuren.ui.showdate
 import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.utils.CommonUtils
-import com.cccjka.liuren.utils.OkHttpClient
 import com.cccjka.liuren.viewmodel.LunarInfoViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import okhttp3.internal.wait
 
-class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
+class LunarInfoActivity : ComponentActivity() {
 
     val viewModel: LunarInfoViewModel = LunarInfoViewModel()
 
@@ -41,7 +29,6 @@ class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        viewModel.setNavigator(this)
         viewModel.request(CommonUtils.returnYMD())
 
         super.onCreate(savedInstanceState)

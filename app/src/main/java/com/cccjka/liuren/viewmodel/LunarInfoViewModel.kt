@@ -1,12 +1,8 @@
 package com.cccjka.liuren.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.cccjka.liuren.api.api
 import com.cccjka.liuren.bean.ResponseBean
 import com.cccjka.liuren.bean.ResponseData
@@ -14,11 +10,9 @@ import com.cccjka.liuren.navigation.LunarInfoNavigator
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.OkHttpClient
 import com.google.gson.Gson
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.URL
