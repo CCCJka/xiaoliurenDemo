@@ -37,6 +37,8 @@ class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
 
     val viewModel: LunarInfoViewModel = LunarInfoViewModel()
 
+    val data: ResponseData = ResponseData()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         viewModel.setNavigator(this)
@@ -49,12 +51,15 @@ class LunarInfoActivity : ComponentActivity(), LunarInfoNavigator {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    showdate(viewModel)
+                    notifyView()
                 }
             }
         }
     }
-    override fun notifyView(): ResponseData {
-        return viewModel.getResponseData();
+
+    @Composable
+    fun notifyView() {
+        val data by remember { viewModel.mutableStateInModel }
+        showdate(data)
     }
 }

@@ -1,6 +1,9 @@
 package com.cccjka.liuren.utils
 
 
+import android.util.Log
+import androidx.compose.ui.res.painterResource
+import com.cccjka.liuren.R
 import com.google.gson.Gson
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -10,6 +13,42 @@ import java.util.concurrent.CountDownLatch
 object CommonUtils {
 
     val calendar = Calendar.getInstance()
+
+    /**
+    * 分割字符串并返回拼接的字符串
+     * @param symbol 分割的符号
+     * @param info 需要分割的字符串
+     * @return 返回分割后的拼接字符串
+    * */
+    fun splitChar(symbol: Char, info: String): String{
+        val infobyte = info.split(symbol)
+        var stringBuffer = StringBuffer();
+        for (str: String in infobyte){
+            stringBuffer.append(str + "\n")
+        }
+        return stringBuffer.toString();
+    }
+
+    /**
+    * 返回当前的年份所属的生肖图片
+    * */
+    fun getCurrentYearAnimal(info: String): Int{
+        when(info){
+            "鼠" -> return R.drawable.rat
+            "牛" -> return R.drawable.ox
+            "虎" -> return R.drawable.tiger
+            "兔" -> return R.drawable.rabbit
+            "龙" -> return R.drawable.loong
+            "蛇" -> return R.drawable.snake
+            "马" -> return R.drawable.horse
+            "羊" -> return R.drawable.goat
+            "猴" -> return R.drawable.monkey
+            "鸡" -> return R.drawable.rooster
+            "狗" -> return R.drawable.dog
+            "猪" -> return R.drawable.pig
+            else -> return R.drawable.unknown
+        }
+    }
 
     /**
     * 获取结果

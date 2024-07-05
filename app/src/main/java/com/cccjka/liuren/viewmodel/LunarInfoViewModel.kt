@@ -27,18 +27,12 @@ class LunarInfoViewModel: ViewModel() {
 
     private var responseData: ResponseData = ResponseData()
 
-    private val _uiState = MutableStateFlow(responseData)
-    val uiState: StateFlow<ResponseData> = _uiState.asStateFlow()
-
-
     private var navigator: LunarInfoNavigator? = null
+
+    var mutableStateInModel = mutableStateOf(responseData)
 
     fun setNavigator(navigator: LunarInfoNavigator){
         this.navigator = navigator;
-    }
-
-    fun getResponseData(): ResponseData{
-        return responseData
     }
 
     fun request(date: String){
@@ -52,8 +46,8 @@ class LunarInfoViewModel: ViewModel() {
                 call: retrofit2.Call<ResponseBean<ResponseData>>,
                 response: retrofit2.Response<ResponseBean<ResponseData>>
             ) {
-                responseData = CommonUtils.fromJson(CommonUtils.toJson(response.body()?.data))
-                navigator?.notifyView()
+//                responseData = CommonUtils.fromJson(CommonUtils.toJson(response.body()?.data))
+                mutableStateInModel.value = response.body()?.data!!
             }
 
             override fun onFailure(

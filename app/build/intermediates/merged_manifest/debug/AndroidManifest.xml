@@ -40,7 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.cccjka.liuren.ui.activity.LunarInfoActivity" />
+        <activity android:name="com.cccjka.liuren.ui.activity.LunarInfoActivity" >
+        </activity>
         <activity
             android:name="androidx.activity.ComponentActivity"
             android:exported="true" />

@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
+        Navigation(activity)
     }
     fun Navigation(activity: Activity){
         startActivity(Intent(this, activity::class.java))
@@ -69,15 +69,10 @@ fun AllView(result: String, click: () -> Unit){
     }
 }
 
-//@Composable
-//fun showCalendar(){
-//
-//}
-
 @Composable
 fun ShowResult(result: String){
     Column {
-        Text(text = "日时速断：\n $result")
+        Text(text = result)
     }
 }
 

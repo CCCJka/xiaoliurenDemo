@@ -21,7 +21,7 @@ class ResponseData {
     var XingEast: String = ""            //星宿吉凶（东方星座）
     var XingWest: String = ""            //四方（星座）
     var PengZu: String = ""              //彭祖百忌
-    var JianShen: String = ""            //黄历12值神建
+    var JianShen: String = ""            //黄历12值
     var TianGanDiZhiYear: String = ""    //天干地支年
     var TianGanDiZhiMonth: String = ""   //天干地支月
     var TianGanDiZhiDay: String = ""     //天干地支日

@@ -29,32 +29,6 @@ class OkHttpClient{
             return instance!!
         }
 
-//        fun getRequest(date: String): ResponseData {
-//            var responseData: ResponseData = ResponseData()
-//
-//            val url = URL("https://www.36jxs.com/")
-//            val retrofit = Retrofit.Builder().baseUrl(url).client(okHttpClient)
-//                .addConverterFactory(GsonConverterFactory.create(Gson())).build()
-//                .create(api::class.java)
-//
-//            retrofit.getInfo(date).enqueue(object : retrofit2.Callback<ResponseBean<ResponseData>> {
-//                override fun onResponse(
-//                    call: retrofit2.Call<ResponseBean<ResponseData>>,
-//                    response: retrofit2.Response<ResponseBean<ResponseData>>
-//                ) {
-//                    responseData = Gson().fromJson(Gson().toJson(response.body()?.data), ResponseData::class.java)
-//                }
-//
-//                override fun onFailure(
-//                    call: retrofit2.Call<ResponseBean<ResponseData>>,
-//                    t: Throwable
-//                ) {
-//                    Log.e("Retrofit", "请求数据失败")
-//                }
-//            })
-//            return responseData
-//        }
-
         suspend fun request(date: String): ResponseData = suspendCancellableCoroutine { it ->
             var responseData: ResponseData = ResponseData()
 
