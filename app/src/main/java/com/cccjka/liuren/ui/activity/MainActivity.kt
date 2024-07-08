@@ -19,7 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.Lunar
-import com.cccjka.liuren.utils.OkHttpClient
 import com.cccjka.liuren.viewmodel.MainViewModel
 
 

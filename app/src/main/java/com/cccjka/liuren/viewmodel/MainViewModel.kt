@@ -7,5 +7,4 @@ import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
 
-
 }

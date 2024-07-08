@@ -1,32 +1,50 @@
 package com.cccjka.liuren.utils
 
 
-import android.util.Log
-import androidx.compose.ui.res.painterResource
 import com.cccjka.liuren.R
 import com.google.gson.Gson
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
-import java.util.concurrent.CountDownLatch
 
 object CommonUtils {
-
-    val calendar = Calendar.getInstance()
 
     /**
     * 分割字符串并返回拼接的字符串
      * @param symbol 分割的符号
      * @param info 需要分割的字符串
+     * @param needControlLength  是否需要判断长度
+     * @param length 分割后字符串的长度,需要needControlLength为true
      * @return 返回分割后的拼接字符串
     * */
-    fun splitChar(symbol: Char, info: String): String{
+    fun splitChar(symbol: Char, info: String, needControlLength: Boolean, length: Int): String{
         val infobyte = info.split(symbol)
         var stringBuffer = StringBuffer();
         for (str: String in infobyte){
-            stringBuffer.append(str + "\n")
+            if(needControlLength){
+                stringBuffer.append(isStringLongerThan5Char(str, length) + "\n")
+            }else{
+                stringBuffer.append(str + "\n")
+            }
         }
         return stringBuffer.toString();
+    }
+
+    fun isStringLongerThan5Char(str: String, subLength: Int): String{
+        val length = str.length;
+        if (length > subLength){    //如果传入的字符串小于参数的截取大小，那么返回传入的字符串
+            var stringBuffer = StringBuffer()
+            for(index in 0..length step subLength){
+                if (index+subLength >= length) {
+                    stringBuffer.append(str.substring(index until length) + "\n")
+                    break
+                }else{
+                    stringBuffer.append(str.substring(index until index+subLength) + "\n")
+                }
+            }
+            return stringBuffer.toString().trim()
+        }
+        return str
     }
 
     /**
@@ -168,15 +186,7 @@ object CommonUtils {
         }
     }
 
-    /**
-     * 返回年月日
-     */
-    fun returnYMD(): String{
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)+1
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        return "$year-$month-$day"
-    }
+
 
     fun <T>toJson(date: T): String{
         return Gson().toJson(date)

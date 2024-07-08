@@ -2,10 +2,12 @@ package com.cccjka.liuren.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
@@ -26,11 +28,12 @@ import androidx.compose.ui.unit.sp
 import com.cccjka.liuren.R
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.utils.CommonUtils
+import com.cccjka.liuren.utils.DateUtils
 import com.cccjka.liuren.viewmodel.LunarInfoViewModel
 
 @Composable
 fun showdate(responseData: ResponseData){
-    Column {
+    Column (modifier = Modifier.padding(10.dp)){
         showCalendar(date = responseData)
     }
 }
@@ -39,35 +42,24 @@ fun showdate(responseData: ResponseData){
 fun showCalendar(date: ResponseData){
     Column ( modifier = Modifier
         .verticalScroll(rememberScrollState())){
-        Text(text = "国历：${date.GregorianDateTime}", fontSize = 30.sp)
-        showLunarStr(date.LMonth + date.LDay)
-        Text(text = "农历节日：${date.LJie}", fontSize = 30.sp)
-        Text(text = "国历节日：${date.GJie}", fontSize = 30.sp)
-
-        showTaishen(date.Taishen)
-        showShenwei(date.ShenWei)
-        val yi = painterResource(R.drawable.yi)
-        val ji = painterResource(R.drawable.ji)
+        TopInfo(lunarMonth = date.LMonth)
+        middleInfo(date = date)
         showCurrentYear(date.LYear)
         showLunarSeason(date.LMonthName, date.MoonName)
         showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
-        Row (modifier = Modifier.fillMaxSize()){
-            showYiOrJi(painter = yi, Alignment.TopEnd, date.Yi)
-            showYiOrJi(painter = ji, Alignment.TopStart, date.Ji)
-        }
     }
 }
 
 @Composable
-fun showYiOrJi(painter: Painter, align: Alignment, info: String){
+fun showYiOrJi(painter: Painter, info: String){
     Column {
         Image(painter = painter,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.size(60.dp),
-            alignment = align,
+            modifier = Modifier.size(40.dp).align(Alignment.CenterHorizontally),
+            alignment = Alignment.Center,
             contentDescription = null)
         Text(modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = CommonUtils.splitChar('.',info),
+            text = CommonUtils.splitChar('.',info, true, 4),
             fontSize = 20.sp)
     }
 }
@@ -121,7 +113,7 @@ fun showShenwei(shenwei: String){
         Text(text = "神位",
             Modifier.align(Alignment.CenterHorizontally),
             fontSize = 20.sp)
-        Text(text = CommonUtils.splitChar(' ', shenwei))
+        Text(text = CommonUtils.splitChar(' ', shenwei, true, 5))
     }
 }
 
@@ -131,6 +123,53 @@ fun showTaishen(taiShen: String){
         Text(text = "胎神",
             Modifier.align(Alignment.CenterHorizontally),
             fontSize = 20.sp)
-        Text(text = CommonUtils.splitChar(',', taiShen))
+        Text(text = CommonUtils.splitChar(',', taiShen, true, 5))
+    }
+}
+
+@Composable
+fun TopInfo(lunarMonth: String){
+    Box(modifier = Modifier.fillMaxSize()) {
+        Text(text = DateUtils.getCurrentYear(),
+            fontSize = 30.sp,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(start = 20.dp))
+        Text(text = lunarMonth,
+            fontSize = 30.sp,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(end = 20.dp))
+    }
+    Row (modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center){
+        Text(text = DateUtils.getCurrentMonth() + "月" + DateUtils.getCurrentday() + "日",
+            fontSize = 100.sp,
+            modifier = Modifier.align(Alignment.CenterVertically))
+    }
+}
+
+@Composable
+fun middleInfo(date: ResponseData){
+    Box(modifier = Modifier.fillMaxWidth()) {
+        Text(text = date.LDay,
+            fontSize = 30.sp,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(start = 20.dp))
+        Text(text = DateUtils.getCurrentDayOfWeek(),
+            fontSize = 30.sp,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(end = 20.dp))
+    }
+    Row (modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+        horizontalArrangement = Arrangement.SpaceAround){
+        val yi = painterResource(R.drawable.yi)
+        val ji = painterResource(R.drawable.ji)
+        showShenwei(date.ShenWei)
+        showYiOrJi(painter = yi, date.Yi)
+        showYiOrJi(painter = ji,  date.Ji)
+        showTaishen(date.Taishen)
     }
 }
