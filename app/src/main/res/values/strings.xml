@@ -1,18 +1,56 @@
 <resources>
     <string name="app_name">小六壬</string>
 
-<!--    大安-->
-    <string name="daan_liulian">大安加留连，办事不周全，失物西北去，婚姻晚几天。</string>
-    <string name="daan_suxi">大安加速喜，事事自己起，失物当日见，婚姻自己提。</string>
-    <string name="daan_chikou">大安加赤口，办事不顺手，失物不用找，婚姻两分手。</string>
-    <string name="daan_xiaoji">大安加小吉，事事从己及，失物不出门，婚姻成就地。</string>
-    <string name="daan_kongwang">大安加空亡，病人要上床，失物无踪影，事事不顺情。</string>
+    <!--    起课歌诀-->
+    <string name="start_position_daan">婚姻杂事去官府，位置在大安</string>
+    <string name="start_position_liulian">求财经商找财爷，位置在留连</string>
+    <string name="start_position_suxi">疾厄病苦到寿宫，位置在速喜</string>
+    <string name="start_position_chikou">官司诉讼在监察，位置在赤口</string>
+    <string name="start_position_xiaoji">外出旅行有驿站，位置在小吉</string>
+    <string name="start_position_kongwang">死亡宫里有神灵，位置在空亡</string>
+
+    <!--    六神相关-->
+    <string name="daan_info">大安为青龙，主婚姻喜事，工作、学业，官职</string>
+    <string name="liulian_info">留连为腾蛇，主钱财田宅之事，女人阴私之事，主淫欲</string>
+    <string name="suxi_info">速喜为朱雀，主信息或我助他人得以回报，或有喜事</string>
+    <string name="chikou_info">赤口为白虎，主斗打官司，凶险之事，不顺</string>
+    <string name="xiaoji_info">小吉为六合，主出行，外出，主风流，感情之事</string>
+    <string name="kongwang_info">空亡为勾陈，主虚空，主外财，主牢狱</string>
+
+    <!--    六神的阴阳天干， 前为阳后为阴-->
+    <string name="daan_wuxing">大安：内含甲木、丁火</string>
+    <string name="liulian_wuxing">留连：内含丁火、己土</string>
+    <string name="suxi_wuxing">速喜：内含丙火、辛金</string>
+    <string name="chikou_wuxing">赤口：内含庚金、癸水</string>
+    <string name="xiaoji_wuxing">小吉：内含壬水、甲木</string>
+    <string name="kongwang_wuxing">空亡：内含乙木、戊土</string>
+
+    <!--    天干相合取事-->
+    <string name="tiangan_jia_yi">甲与己合为近合，主事情发生时间不长，工作单位不远，情人和朋友居处不远，主办事在最近时间能够成功</string>
+    <string name="tiangan_ding_ren">丁与壬合为远合，主去远地方工作，远方亲戚朋友，要拖延一段时间，不迅速</string>
+    <string name="tiangan_bing_xin">丙与辛合为自合，表示迅速，快速。远在天边，近在眼前</string>
+    <string name="tiangan_yi_geng">乙与庚合，戊与癸合为空合，主事情虚假，实者不实，虚者不虚</string>
+
+    <!--    六神取事-->
+    <string name="liushen_daan_liulian">大安与留连相合，是与阴合，主阴私之事，事情跟女人有关系。主牵连，拖延</string>
+    <string name="liushen_daan_xiaoji">大安与小吉相合，是与阳合，主喜庆吉事，婚姻可成，买卖交易有成，外出顺利，求学找工作顺利可成</string>
+    <string name="liushen_chikou_kongwang">赤口与空亡相合，是空合，为白虎扑空，主凶事不凶，凶事化吉，或是吉凶未定</string>
+    <string name="liushen_suxi">速喜是自合，为喜合。表示喜庆，迅速。占事不出月</string>
+    　　
+
+
+    <!--    大安-->
+    <string name="daan_liulian">大安加留连，\n办事不周全，\n失物西北去，\n婚姻晚几天。</string>
+    <string name="daan_suxi">大安加速喜，\n事事自己起，\n失物当日见，\n婚姻自己提。</string>
+    <string name="daan_chikou">大安加赤口，\n办事不顺手，\n失物不用找，\n婚姻两分手。</string>
+    <string name="daan_xiaoji">大安加小吉，\n事事从己及，\n失物不出门，\n婚姻成就地。</string>
+    <string name="daan_kongwang">大安加空亡，\n病人要上床，\n失物无踪影，\n事事不顺情。</string>
 <!--    小吉-->
-    <string name="xiaoji_liulian">小吉加留连，事事有反还，婚姻有人破，失物上西南。</string>
-    <string name="xiaoji_suxi">小吉加速喜，事事从头起，婚姻能成就，失物在院里。</string>
-    <string name="xiaoji_chikou">小吉加赤口，办事往外走，婚姻有难处，失物丢了手。</string>
-    <string name="xiaoji_daan">小吉加大安，事事两周全，婚姻当日定，失物自己损。</string>
-    <string name="xiaoji_kongwang">小吉加空亡，病人不妥当，失物正东找，婚姻再想想。</string>
+    <string name="xiaoji_liulian">小吉加留连，\n事事有反还，\n婚姻有人破，\n失物上西南。</string>
+    <string name="xiaoji_suxi">小吉加速喜，\n事事从头起，\n婚姻能成就，\n失物在院里。</string>
+    <string name="xiaoji_chikou">小吉加赤口，\n办事往外走，\n婚姻有难处，\n失物丢了手。</string>
+    <string name="xiaoji_daan">小吉加大安，\n事事两周全，\n婚姻当日定，\n失物自己损。</string>
+    <string name="xiaoji_kongwang">小吉加空亡，\n病人不妥当，\n失物正东找，\n婚姻再想想。</string>
 <!--    速喜-->
     <string name="suxi_liulian">速喜加留连，婚姻不可言，失物无信息，病人有仙缘。</string>
     <string name="suxi_daan">速喜加大安，事事都平安，姻姻成全了，占病都相安。</string>

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [androidx.compose.material3:material3:1.0.0] C:\Users\Admin\.gradle\caches\transforms-3\95307028250a3d1c2707ec3c5d80d07c\transformed\material3-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-ripple:1.4.0] C:\Users\Admin\.gradle\caches\transforms-3\147ed7aeca9e612e95fbea5432397395\transformed\material-ripple-1.4.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-icons-core:1.4.0] C:\Users\Admin\.gradle\caches\transforms-3\ed8f6d7e72f9ee845bda4a058d9a3830\transformed\material-icons-core-1.4.0\AndroidManifest.xml:17:1-22:12
@@ -62,8 +62,8 @@ ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:7:5-31:19
-INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:7:5-31:19
+ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:7:5-30:19
+INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:7:5-30:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\Admin\.gradle\caches\transforms-3\c9080c18d7bb1791d6d9d36604bc482e\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\Admin\.gradle\caches\transforms-3\c9080c18d7bb1791d6d9d36604bc482e\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling:1.4.0] C:\Users\Admin\.gradle\caches\transforms-3\2543e48c3370cd230fcfec1060dacb64\transformed\ui-tooling-1.4.0\AndroidManifest.xml:22:5-26:19
@@ -123,9 +123,9 @@ ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:25:27-74
 activity#com.cccjka.liuren.ui.activity.LunarInfoActivity
-ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:28:9-30:20
+ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:29:9-83
 	android:name
-		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:28:19-81
+		ADDED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml:29:19-81
 uses-sdk
 INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Admin\Desktop\githubProject\xiaoliurenDemo\app\src\main\AndroidManifest.xml

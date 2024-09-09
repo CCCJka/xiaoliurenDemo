@@ -1,6 +1,7 @@
 package com.cccjka.liuren.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,12 +30,16 @@ import com.cccjka.liuren.R
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.DateUtils
-import com.cccjka.liuren.viewmodel.LunarInfoViewModel
 
 @Composable
 fun showdate(responseData: ResponseData){
-    Column (modifier = Modifier.padding(10.dp)){
-        showCalendar(date = responseData)
+    val backgroundPic = painterResource(R.drawable.paper);
+    Box(modifier = Modifier.fillMaxSize()){
+        Image(painter = backgroundPic, contentDescription = null,
+            modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillHeight)
+        Column (modifier = Modifier.padding(10.dp),){
+            showCalendar(date = responseData)
+        }
     }
 }
 
@@ -42,11 +47,9 @@ fun showdate(responseData: ResponseData){
 fun showCalendar(date: ResponseData){
     Column ( modifier = Modifier
         .verticalScroll(rememberScrollState())){
-        TopInfo(lunarMonth = date.LMonth)
+        TopInfo(lunarMonthAndDAy = date.LMonth + date.LDay)
         middleInfo(date = date)
-        showCurrentYear(date.LYear)
-        showLunarSeason(date.LMonthName, date.MoonName)
-        showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
+        bottomInfo(date = date)
     }
 }
 
@@ -54,19 +57,14 @@ fun showCalendar(date: ResponseData){
 fun showYiOrJi(painter: Painter, info: String){
     Column {
         Image(painter = painter,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.size(40.dp).align(Alignment.CenterHorizontally),
-            alignment = Alignment.Center,
+            modifier = Modifier
+                .size(40.dp)
+                .align(alignment = Alignment.CenterHorizontally),
             contentDescription = null)
         Text(modifier = Modifier.align(Alignment.CenterHorizontally),
             text = CommonUtils.splitChar('.',info, true, 4),
             fontSize = 20.sp)
     }
-}
-
-@Composable
-fun showLunarStr(info: String){
-    Text(text = info, fontSize = 30.sp)
 }
 
 @Composable
@@ -109,33 +107,35 @@ fun showSexagenaryCycle(year:String, month:String, day: String){
 
 @Composable
 fun showShenwei(shenwei: String){
-    Column {
-        Text(text = "神位",
-            Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 20.sp)
-        Text(text = CommonUtils.splitChar(' ', shenwei, true, 5))
-    }
+    showText(title = "神位", date = CommonUtils.splitChar(' ', shenwei, true, 5))
+//    Column {
+//        Text(text = "神位",
+//            Modifier.align(Alignment.CenterHorizontally),
+//            fontSize = 20.sp)
+//        Text(text = CommonUtils.splitChar(' ', shenwei, true, 5))
+//    }
 }
 
 @Composable
 fun showTaishen(taiShen: String){
-    Column {
-        Text(text = "胎神",
-            Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 20.sp)
-        Text(text = CommonUtils.splitChar(',', taiShen, true, 5))
-    }
+    showText(title = "胎神", date = CommonUtils.splitChar(',', taiShen, true, 5))
+//    Column {
+//        Text(text = "胎神",
+//            Modifier.align(Alignment.CenterHorizontally),
+//            fontSize = 20.sp)
+//        Text(text = CommonUtils.splitChar(',', taiShen, true, 5))
+//    }
 }
 
 @Composable
-fun TopInfo(lunarMonth: String){
+fun TopInfo(lunarMonthAndDAy: String){
     Box(modifier = Modifier.fillMaxSize()) {
         Text(text = DateUtils.getCurrentYear(),
             fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(start = 20.dp))
-        Text(text = lunarMonth,
+        Text(text = lunarMonthAndDAy,
             fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.TopEnd)
@@ -152,18 +152,14 @@ fun TopInfo(lunarMonth: String){
 @Composable
 fun middleInfo(date: ResponseData){
     Box(modifier = Modifier.fillMaxWidth()) {
-        Text(text = date.LDay,
-            fontSize = 30.sp,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 20.dp))
         Text(text = DateUtils.getCurrentDayOfWeek(),
-            fontSize = 30.sp,
+            fontSize = 40.sp,
             modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(end = 20.dp))
+                .align(Alignment.Center))
     }
-    Row (modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+    Row (modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 20.dp),
         horizontalArrangement = Arrangement.SpaceAround){
         val yi = painterResource(R.drawable.yi)
         val ji = painterResource(R.drawable.ji)
@@ -171,5 +167,26 @@ fun middleInfo(date: ResponseData){
         showYiOrJi(painter = yi, date.Yi)
         showYiOrJi(painter = ji,  date.Ji)
         showTaishen(date.Taishen)
+    }
+}
+
+@Composable
+fun bottomInfo(date: ResponseData){
+    Row {
+        showCurrentYear(date.LYear)
+        showLunarSeason(date.LMonthName, date.MoonName)
+        showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
+        showText(title = "相冲", date = date.Chong)
+        showText(title = "岁煞", date = date.SuiSha)
+    }
+}
+
+@Composable
+fun showText(title: String, date: String){
+    Column {
+        Text(text = title,
+            Modifier.align(Alignment.CenterHorizontally),
+            fontSize = 20.sp)
+        Text(text = date)
     }
 }

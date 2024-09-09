@@ -1,126 +1,130 @@
 [
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_dog.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/dog.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-anydpi/ic_launcher.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_rooster.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/rooster.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_yi.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\yi.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_loong.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/loong.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_horse.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\horse.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_goat.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\goat.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_monkey.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/monkey.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_tiger.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\tiger.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-anydpi\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_goat.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/goat.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_rat.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\rat.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/xml_backup_rules.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_snake.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\snake.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_unknown.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/unknown.png"
+        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_paper.png.flat",
+        "source": "com.cccjka.liuren.app-main-46:/drawable/paper.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/xml_data_extraction_rules.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-anydpi\\ic_launcher.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_rat.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/rat.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_rabbit.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\rabbit.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_tiger.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/tiger.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_ox.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\ox.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_unknown.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\unknown.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_monkey.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\monkey.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_yi.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/yi.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_horse.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/horse.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_ji.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\ji.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_rabbit.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/rabbit.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_pig.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/pig.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_ji.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/ji.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_dog.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\dog.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_ox.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/ox.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-anydpi/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_rooster.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\rooster.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/drawable_snake.png.flat",
-        "source": "com.cccjka.liuren.app-main-46:/drawable/snake.png"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_loong.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\loong.png"
     },
     {
-        "merged": "com.cccjka.liuren.app-merged_res-44:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.cccjka.liuren.app-main-46:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-merged_res-44:\\drawable_pig.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.cccjka.liuren.app-main-46:\\drawable\\pig.png"
     }
 ]
