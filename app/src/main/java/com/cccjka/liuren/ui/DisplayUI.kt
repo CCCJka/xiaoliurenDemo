@@ -21,11 +21,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ResourcesCompat
 import com.cccjka.liuren.R
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.utils.CommonUtils
@@ -73,20 +75,10 @@ fun showCurrentYear(year: String){
     val painter = painterResource(id = animalId);
     Column {
         Image(painter = painter,
-            modifier = Modifier.size(100.dp),
+            modifier = Modifier.size(80.dp),
             contentDescription = null)
         Text(text = "${year}年",
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 20.sp)
-    }
-}
-
-@Composable
-fun showLunarSeason(seasonName: String, monthName: String){
-    Row {
-        Text(text = "季度\n${seasonName}",
-            fontSize = 20.sp)
-        Text(text = "月名\n${monthName}",
             fontSize = 20.sp)
     }
 }
@@ -97,34 +89,12 @@ fun showSexagenaryCycle(year:String, month:String, day: String){
         Text(text = "天干地支",
             Modifier.align(Alignment.CenterHorizontally))
         Text(text = "年：${year}",
-            fontSize = 20.sp)
+            fontSize = 15.sp)
         Text(text = "月：${month}",
-            fontSize = 20.sp)
+            fontSize = 15.sp)
         Text(text = "日：${day}",
-            fontSize = 20.sp)
+            fontSize = 15.sp)
     }
-}
-
-@Composable
-fun showShenwei(shenwei: String){
-    showText(title = "神位", date = CommonUtils.splitChar(' ', shenwei, true, 5))
-//    Column {
-//        Text(text = "神位",
-//            Modifier.align(Alignment.CenterHorizontally),
-//            fontSize = 20.sp)
-//        Text(text = CommonUtils.splitChar(' ', shenwei, true, 5))
-//    }
-}
-
-@Composable
-fun showTaishen(taiShen: String){
-    showText(title = "胎神", date = CommonUtils.splitChar(',', taiShen, true, 5))
-//    Column {
-//        Text(text = "胎神",
-//            Modifier.align(Alignment.CenterHorizontally),
-//            fontSize = 20.sp)
-//        Text(text = CommonUtils.splitChar(',', taiShen, true, 5))
-//    }
 }
 
 @Composable
@@ -163,30 +133,40 @@ fun middleInfo(date: ResponseData){
         horizontalArrangement = Arrangement.SpaceAround){
         val yi = painterResource(R.drawable.yi)
         val ji = painterResource(R.drawable.ji)
-        showShenwei(date.ShenWei)
+        showText(title = "神位", date = CommonUtils.splitChar(' ', date.ShenWei, true, 5))
         showYiOrJi(painter = yi, date.Yi)
         showYiOrJi(painter = ji,  date.Ji)
-        showTaishen(date.Taishen)
+        showText(title = "胎神", date = CommonUtils.splitChar(',', date.Taishen, true, 5))
     }
 }
 
 @Composable
 fun bottomInfo(date: ResponseData){
-    Row {
+    Row (Modifier.fillMaxWidth()){
         showCurrentYear(date.LYear)
-        showLunarSeason(date.LMonthName, date.MoonName)
         showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
-        showText(title = "相冲", date = date.Chong)
-        showText(title = "岁煞", date = date.SuiSha)
+        Column {
+            showText(title = "相冲", date = date.Chong)
+            showText(title = "岁煞", date = date.SuiSha)
+        }
+        liurenResult(date.GregorianDateTime)
     }
 }
 
 @Composable
-fun showText(title: String, date: String){
+fun  liurenResult(currentDay: String){
+    Text(text = stringResource(id = R.string.xiaoji_liulian))
+}
+
+@Composable
+fun showText(title: String, date: String) {
     Column {
-        Text(text = title,
+        Text(
+            text = title,
             Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 20.sp)
-        Text(text = date)
+            fontSize = 20.sp
+        )
+        Text(text = date,
+            Modifier.align(Alignment.CenterHorizontally))
     }
 }
