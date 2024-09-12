@@ -62,6 +62,7 @@ string liushen_chikou_kongwang
 string liushen_daan_liulian
 string liushen_daan_xiaoji
 string liushen_suxi
+string show_detail
 string start_position_chikou
 string start_position_daan
 string start_position_kongwang

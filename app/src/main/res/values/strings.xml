@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">小六壬</string>
 
+    <string name="show_detail">跳转到细节</string>
+
+
     <!--    起课歌诀-->
     <string name="start_position_daan">婚姻杂事去官府，位置在大安</string>
     <string name="start_position_liulian">求财经商找财爷，位置在留连</string>

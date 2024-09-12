@@ -1,6 +1,8 @@
 package com.cccjka.liuren.utils
 
 
+import android.content.Context
+import android.content.Intent
 import com.cccjka.liuren.R
 import com.google.gson.Gson
 import java.time.LocalDateTime
@@ -45,6 +47,10 @@ object CommonUtils {
             return stringBuffer.toString().trim()
         }
         return str
+    }
+
+    fun navigatorActivity(context: Context, intent: Intent){
+        context.startActivity(intent)
     }
 
     /**

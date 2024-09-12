@@ -1,5 +1,8 @@
 package com.cccjka.liuren.ui
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -20,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,28 +35,29 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.res.ResourcesCompat
 import com.cccjka.liuren.R
 import com.cccjka.liuren.bean.ResponseData
+import com.cccjka.liuren.ui.activity.DetailActivity
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.DateUtils
 
 @Composable
-fun showdate(responseData: ResponseData){
+fun showdate(gender: String, responseData: ResponseData){
     val backgroundPic = painterResource(R.drawable.paper);
     Box(modifier = Modifier.fillMaxSize()){
         Image(painter = backgroundPic, contentDescription = null,
             modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillHeight)
         Column (modifier = Modifier.padding(10.dp),){
-            showCalendar(date = responseData)
+            showCalendar(gender, date = responseData)
         }
     }
 }
 
 @Composable
-fun showCalendar(date: ResponseData){
+fun showCalendar(gender: String, date: ResponseData){
     Column ( modifier = Modifier
         .verticalScroll(rememberScrollState())){
         TopInfo(lunarMonthAndDAy = date.LMonth + date.LDay)
         middleInfo(date = date)
-        bottomInfo(date = date)
+        bottomInfo(gender, date = date)
     }
 }
 
@@ -141,7 +147,7 @@ fun middleInfo(date: ResponseData){
 }
 
 @Composable
-fun bottomInfo(date: ResponseData){
+fun bottomInfo(gender: String, date: ResponseData){
     Row (Modifier.fillMaxWidth()){
         showCurrentYear(date.LYear)
         showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
@@ -149,13 +155,19 @@ fun bottomInfo(date: ResponseData){
             showText(title = "相冲", date = date.Chong)
             showText(title = "岁煞", date = date.SuiSha)
         }
-        liurenResult(date.GregorianDateTime)
+        liurenResult(gender, "")
     }
 }
 
 @Composable
-fun  liurenResult(currentDay: String){
-    Text(text = stringResource(id = R.string.xiaoji_liulian))
+fun  liurenResult(gender: String, date: String){
+    val context = LocalContext.current
+    val intent = Intent(context, DetailActivity::class.java)
+    intent.putExtra("gendar", gender)
+    intent.putExtra("data", date)
+    Button(onClick = { CommonUtils.navigatorActivity(context, intent) }) {
+        Text(text = stringResource(id = R.string.show_detail))
+    }
 }
 
 @Composable
