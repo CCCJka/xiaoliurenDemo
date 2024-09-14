@@ -76,26 +76,63 @@ object CommonUtils {
 
     /**
     * 获取结果
+     * @param result 获取道的结果
+     * @param startAs 0:正常起课  1:重阴起课  2:重阳起课
+     * @return 获取到的结果
     * */
-    fun getResult(result: Int): String{
-        return when (result) {
-            1 -> "大安"
-            2 -> "留连"
-            3 -> "速喜"
-            4 -> "赤口"
-            5 -> "小吉"
-            6 -> "空亡"
-            0 -> "空亡"
-            else -> {
-                "unkonwn"
+    fun getResult(result: Int, startAs: Int): String{
+        if (startAs == 0){
+            return when (result) {
+                1 -> "大安"
+                2 -> "留连"
+                3 -> "速喜"
+                4 -> "赤口"
+                5 -> "小吉"
+                6 -> "空亡"
+                0 -> "空亡"
+                else -> {
+                    "unkonwn"
+                }
+            }
+        } else if (startAs == 1){
+            return when (result) {
+                1 -> "留连"
+                2 -> "速喜"
+                3 -> "赤口"
+                4 -> "小吉"
+                5 -> "空亡"
+                6 -> "大安"
+                0 -> "大安"
+                else -> {
+                    "unkonwn"
+                }
+            }
+        } else if (startAs == 2){
+            return when (result) {
+                1 -> "小吉"
+                2 -> "空亡"
+                3 -> "大安"
+                4 -> "留连"
+                5 -> "速喜"
+                6 -> "赤口"
+                0 -> "赤口    "
+                else -> {
+                    "unkonwn"
+                }
             }
         }
+        return "unkonwn"
     }
 
     /**
     * 获取根据日时获取的结果
     * */
-    fun getResult(day: String, hour: String): String{
+    fun getResult(): String{
+        val lunar = Lunar()
+        val getday = (lunar.lunarMonth - 1) + lunar.lunarDay
+        val day = getResult(getday % 6, 0)
+        val getHour = (lunar.lunarMonth - 1)  + (lunar.lunarDay - 1) + getCurrentTime(getTime())
+        val hour = getResult(getHour % 6, 0)
         return when(day){
             "大安" -> {
                 return when(hour){
@@ -189,6 +226,14 @@ object CommonUtils {
             in 19..20 -> 11
             in 21..22 -> 12
             else -> { 1 }
+        }
+    }
+
+    fun startClass(gender: String){
+        if (gender.equals("man")){
+            getResult(1, 2)
+        }else{
+            getResult(1, 1)
         }
     }
 

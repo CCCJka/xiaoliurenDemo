@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,26 +39,27 @@ import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.ui.activity.DetailActivity
 import com.cccjka.liuren.utils.CommonUtils
 import com.cccjka.liuren.utils.DateUtils
+import com.cccjka.liuren.utils.Lunar
 
 @Composable
-fun showdate(gender: String, responseData: ResponseData){
-    val backgroundPic = painterResource(R.drawable.paper);
+fun showdata(responseData: ResponseData){
+    val backgroundPic = painterResource(R.drawable.paper)
     Box(modifier = Modifier.fillMaxSize()){
         Image(painter = backgroundPic, contentDescription = null,
             modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillHeight)
         Column (modifier = Modifier.padding(10.dp),){
-            showCalendar(gender, date = responseData)
+            showCalendar(data = responseData)
         }
     }
 }
 
 @Composable
-fun showCalendar(gender: String, date: ResponseData){
+fun showCalendar(data: ResponseData){
     Column ( modifier = Modifier
         .verticalScroll(rememberScrollState())){
-        TopInfo(lunarMonthAndDAy = date.LMonth + date.LDay)
-        middleInfo(date = date)
-        bottomInfo(gender, date = date)
+        TopInfo(lunarMonthAndDAy = data.LMonth + data.LDay)
+        middleInfo(data = data)
+        bottomInfo(data = data)
     }
 }
 
@@ -126,7 +128,7 @@ fun TopInfo(lunarMonthAndDAy: String){
 }
 
 @Composable
-fun middleInfo(date: ResponseData){
+fun middleInfo(data: ResponseData){
     Box(modifier = Modifier.fillMaxWidth()) {
         Text(text = DateUtils.getCurrentDayOfWeek(),
             fontSize = 40.sp,
@@ -139,46 +141,86 @@ fun middleInfo(date: ResponseData){
         horizontalArrangement = Arrangement.SpaceAround){
         val yi = painterResource(R.drawable.yi)
         val ji = painterResource(R.drawable.ji)
-        showText(title = "神位", date = CommonUtils.splitChar(' ', date.ShenWei, true, 5))
-        showYiOrJi(painter = yi, date.Yi)
-        showYiOrJi(painter = ji,  date.Ji)
-        showText(title = "胎神", date = CommonUtils.splitChar(',', date.Taishen, true, 5))
+        showText(title = "神位", data = CommonUtils.splitChar(' ', data.ShenWei, true, 5))
+        showYiOrJi(painter = yi, data.Yi)
+        showYiOrJi(painter = ji,  data.Ji)
+        showText(title = "胎神", data = CommonUtils.splitChar(',', data.Taishen, true, 5))
     }
 }
 
 @Composable
-fun bottomInfo(gender: String, date: ResponseData){
-    Row (Modifier.fillMaxWidth()){
-        showCurrentYear(date.LYear)
-        showSexagenaryCycle(date.TianGanDiZhiYear, date.TianGanDiZhiMonth, date.TianGanDiZhiDay)
-        Column {
-            showText(title = "相冲", date = date.Chong)
-            showText(title = "岁煞", date = date.SuiSha)
-        }
-        liurenResult(gender, "")
+fun bottomInfo(data: ResponseData){
+    Row (
+        Modifier
+            .fillMaxWidth()
+            .padding(top = 10.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically){
+        showCurrentYear(data.LYear)
+        showSexagenaryCycle(data.TianGanDiZhiYear, data.TianGanDiZhiMonth, data.TianGanDiZhiDay)
+        xiangChongSuiSha(data)
+        liurenResult()
     }
 }
 
 @Composable
-fun  liurenResult(gender: String, date: String){
+fun xiangChongSuiSha(data: ResponseData){
+    Column (horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center){
+        showText(title = "相冲", data = data.Chong)
+        showText(title = "岁煞", data = data.SuiSha)
+    }
+}
+
+@Composable
+fun  liurenResult(){
     val context = LocalContext.current
     val intent = Intent(context, DetailActivity::class.java)
-    intent.putExtra("gendar", gender)
-    intent.putExtra("data", date)
-    Button(onClick = { CommonUtils.navigatorActivity(context, intent) }) {
-        Text(text = stringResource(id = R.string.show_detail))
-    }
+    Text(text = CommonUtils.getResult(), Modifier.clickable {
+        CommonUtils.navigatorActivity(context, intent)
+    })
 }
 
 @Composable
-fun showText(title: String, date: String) {
+fun showText(title: String, data: String) {
     Column {
         Text(
             text = title,
             Modifier.align(Alignment.CenterHorizontally),
             fontSize = 20.sp
         )
-        Text(text = date,
+        Text(text = data,
             Modifier.align(Alignment.CenterHorizontally))
     }
 }
+
+/*****     MainActivity UI End       *******/
+
+@Composable
+fun DetailView(){
+    val backgroundPic = painterResource(R.drawable.paper)
+    val lunar = Lunar()
+    val lunarDay = lunar.lunarDay
+    val getHour = CommonUtils.getCurrentTime(CommonUtils.getTime())
+    val totalCount = lunarDay + getHour
+    Image(painter = backgroundPic, contentDescription = null)
+    Row {
+        showDetailInfo("man")
+        showDetailInfo("women")
+    }
+}
+
+@Composable
+fun showDetailInfo(gender: String){
+    if (gender.equals("man")){
+        detailResult()
+    } else if (gender.equals("women")){
+        detailResult()
+    }
+}
+
+@Composable
+fun detailResult(){
+
+}
+
