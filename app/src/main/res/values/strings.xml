@@ -12,6 +12,8 @@
     <string name="start_position_xiaoji">外出旅行有驿站，位置在小吉</string>
     <string name="start_position_kongwang">死亡宫里有神灵，位置在空亡</string>
 
+
+
     <!--    六神相关-->
     <string name="daan_info">大安为青龙，主婚姻喜事，工作、学业，官职</string>
     <string name="liulian_info">留连为腾蛇，主钱财田宅之事，女人阴私之事，主淫欲</string>
@@ -21,12 +23,12 @@
     <string name="kongwang_info">空亡为勾陈，主虚空，主外财，主牢狱</string>
 
     <!--    六神的阴阳天干， 前为阳后为阴-->
-    <string name="daan_wuxing">大安：内含甲木、丁火</string>
-    <string name="liulian_wuxing">留连：内含丁火、己土</string>
-    <string name="suxi_wuxing">速喜：内含丙火、辛金</string>
-    <string name="chikou_wuxing">赤口：内含庚金、癸水</string>
-    <string name="xiaoji_wuxing">小吉：内含壬水、甲木</string>
-    <string name="kongwang_wuxing">空亡：内含乙木、戊土</string>
+    <string name="daan_wuxing">大安：内含阳甲木、阴丁火</string>
+    <string name="liulian_wuxing">留连：内含阳丁火、阴己土</string>
+    <string name="suxi_wuxing">速喜：内含阳丙火、阴辛金</string>
+    <string name="chikou_wuxing">赤口：内含阳庚金、阴癸水</string>
+    <string name="xiaoji_wuxing">小吉：内含阳壬水、阴甲木</string>
+    <string name="kongwang_wuxing">空亡：内含阳乙木、阴戊土</string>
 
     <!--    天干相合取事-->
     <string name="tiangan_jia_yi">甲与己合为近合，主事情发生时间不长，工作单位不远，情人和朋友居处不远，主办事在最近时间能够成功</string>

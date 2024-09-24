@@ -1,10 +1,7 @@
 package com.cccjka.liuren.ui
 
-import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,13 +11,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
@@ -28,12 +26,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.res.ResourcesCompat
 import com.cccjka.liuren.R
 import com.cccjka.liuren.bean.ResponseData
 import com.cccjka.liuren.ui.activity.DetailActivity
@@ -60,6 +55,7 @@ fun showCalendar(data: ResponseData){
         TopInfo(lunarMonthAndDAy = data.LMonth + data.LDay)
         middleInfo(data = data)
         bottomInfo(data = data)
+        liurenResult(data.TianGanDiZhiYear, data.TianGanDiZhiMonth, data.TianGanDiZhiDay)
     }
 }
 
@@ -122,7 +118,7 @@ fun TopInfo(lunarMonthAndDAy: String){
     Row (modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center){
         Text(text = DateUtils.getCurrentMonth() + "月" + DateUtils.getCurrentday() + "日",
-            fontSize = 100.sp,
+            fontSize = 70.sp,
             modifier = Modifier.align(Alignment.CenterVertically))
     }
 }
@@ -152,14 +148,12 @@ fun middleInfo(data: ResponseData){
 fun bottomInfo(data: ResponseData){
     Row (
         Modifier
-            .fillMaxWidth()
-            .padding(top = 10.dp),
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically){
-        showCurrentYear(data.LYear)
         showSexagenaryCycle(data.TianGanDiZhiYear, data.TianGanDiZhiMonth, data.TianGanDiZhiDay)
+        showCurrentYear(data.LYear)
         xiangChongSuiSha(data)
-        liurenResult()
     }
 }
 
@@ -173,12 +167,16 @@ fun xiangChongSuiSha(data: ResponseData){
 }
 
 @Composable
-fun  liurenResult(){
+fun  liurenResult(year: String, month: String, day: String){
     val context = LocalContext.current
     val intent = Intent(context, DetailActivity::class.java)
-    Text(text = CommonUtils.getResult(), Modifier.clickable {
-        CommonUtils.navigatorActivity(context, intent)
-    })
+    intent.putExtra("year", year)
+    intent.putExtra("month", month)
+    intent.putExtra("day", day)
+    Text(text = CommonUtils.getResult(0), modifier = Modifier
+        .clickable { CommonUtils.navigatorActivity(context, intent) }
+        .fillMaxSize(),
+        textAlign = TextAlign.Center)
 }
 
 @Composable
@@ -197,30 +195,60 @@ fun showText(title: String, data: String) {
 /*****     MainActivity UI End       *******/
 
 @Composable
-fun DetailView(){
+fun DetailView(list: List<String>){
     val backgroundPic = painterResource(R.drawable.paper)
-    val lunar = Lunar()
-    val lunarDay = lunar.lunarDay
-    val getHour = CommonUtils.getCurrentTime(CommonUtils.getTime())
-    val totalCount = lunarDay + getHour
-    Image(painter = backgroundPic, contentDescription = null)
-    Row {
-        showDetailInfo("man")
-        showDetailInfo("women")
+    var status by remember { mutableStateOf(0) }
+    Image(painter = backgroundPic, contentDescription = null,
+        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillHeight)
+    Column(modifier = Modifier.fillMaxSize()){
+        Row (modifier = Modifier.fillMaxWidth()){
+            Text(text = "男", fontSize = 30.sp,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { status = 2 },
+                textAlign = TextAlign.Center)
+            Text(text = "女", fontSize = 30.sp,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { status = 1 },
+                textAlign = TextAlign.Center)
+            Text(text = "通用", fontSize = 30.sp,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { status = 0 },
+                textAlign = TextAlign.Center)
+        }
+        showDetailResult(status, list)
+
     }
 }
 
 @Composable
-fun showDetailInfo(gender: String){
-    if (gender.equals("man")){
-        detailResult()
-    } else if (gender.equals("women")){
-        detailResult()
+fun showDetailResult(startAs: Int, list: List<String>){
+    val context = LocalContext.current
+    val list = CommonUtils.returnClass(context, list)
+    Column {
+        Text(text = CommonUtils.getResult(startAs),
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth())
+        showInfo(list[0])
+        showInfo(list[1])
+        showInfo(list[2])
+        showInfo(list[3])
     }
 }
 
 @Composable
-fun detailResult(){
-
+fun showInfo(detail: String){
+    Text(text = detail,
+        modifier = Modifier
+            .padding(10.dp)
+            .fillMaxWidth(),
+        textAlign = TextAlign.Center)
 }
+
+/*********   DetailActivity End   ***********/
 

@@ -1,19 +1,12 @@
 package com.cccjka.liuren.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.app.ActivityCompat
-import com.cccjka.liuren.R
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.cccjka.liuren.ui.DetailView
-import com.cccjka.liuren.ui.theme.LiuyaoTheme
 import com.cccjka.liuren.viewmodel.DetailViewModel
 
 class DetailActivity : ComponentActivity()  {
@@ -22,8 +15,14 @@ class DetailActivity : ComponentActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val year = intent.getStringExtra("year")
+        val month = intent.getStringExtra("month")
+        val day = intent.getStringExtra("day")
+        viewModel.list.add(0, year!!)
+        viewModel.list.add(1, month!!)
+        viewModel.list.add(2, day!!)
         setContent {
-            showDetail()
+            DetailView(viewModel.list)
         }
     }
 
@@ -32,5 +31,5 @@ class DetailActivity : ComponentActivity()  {
 @Preview(showBackground = true)
 @Composable
 fun showDetail(){
-    DetailView()
+//    DetailView()
 }

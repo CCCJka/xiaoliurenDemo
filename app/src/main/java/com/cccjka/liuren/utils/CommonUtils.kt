@@ -3,6 +3,8 @@ package com.cccjka.liuren.utils
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import com.cccjka.liuren.R
 import com.google.gson.Gson
 import java.time.LocalDateTime
@@ -10,6 +12,10 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 object CommonUtils {
+
+    var dayClass = ""
+    var timeClass = ""
+
 
     /**
     * 分割字符串并返回拼接的字符串
@@ -76,7 +82,7 @@ object CommonUtils {
 
     /**
     * 获取结果
-     * @param result 获取道的结果
+     * @param result 获取到的结果
      * @param startAs 0:正常起课  1:重阴起课  2:重阳起课
      * @return 获取到的结果
     * */
@@ -115,7 +121,7 @@ object CommonUtils {
                 4 -> "留连"
                 5 -> "速喜"
                 6 -> "赤口"
-                0 -> "赤口    "
+                0 -> "赤口"
                 else -> {
                     "unkonwn"
                 }
@@ -125,14 +131,46 @@ object CommonUtils {
     }
 
     /**
-    * 获取根据日时获取的结果
+    * 获取当前小时
     * */
-    fun getResult(): String{
+    fun getTime(): Int{
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH")
+        return current.format(formatter).toInt()
+    }
+
+    /**
+    * 获取十二时辰
+    * */
+    fun getCurrentTime(hour: Int): Int{
+        return when(hour){
+            23 -> 1
+            in 1..2 -> 2
+            in 3..4 -> 3
+            in 5..6 -> 4
+            in 7..8 -> 5
+            in 9..10 -> 6
+            in 11..12 -> 7
+            in 13..14 -> 8
+            in 15..16 -> 9
+            in 17..18 -> 10
+            in 19..20 -> 11
+            in 21..22 -> 12
+            else -> { 1 }
+        }
+    }
+
+    /**
+     * 获取根据日时获取的结果
+     * */
+    fun getResult(startAs: Int): String{
         val lunar = Lunar()
         val getday = (lunar.lunarMonth - 1) + lunar.lunarDay
-        val day = getResult(getday % 6, 0)
+        val day = getResult(getday % 6, startAs)
+        dayClass = day
         val getHour = (lunar.lunarMonth - 1)  + (lunar.lunarDay - 1) + getCurrentTime(getTime())
         val hour = getResult(getHour % 6, 0)
+        timeClass = hour
         return when(day){
             "大安" -> {
                 return when(hour){
@@ -156,13 +194,13 @@ object CommonUtils {
             }
             "速喜" -> {
                 return when(hour){
-                        "大安" -> SUXI.DAAN.hour
-                        "留连" -> SUXI.LIULIAN.hour
-                        "赤口" -> SUXI.CHIKOU.hour
-                        "小吉" -> SUXI.XIAOJI.hour
-                        "空亡" -> SUXI.KONGWANG.hour
-                        else -> { "双速喜" }
-                    }
+                    "大安" -> SUXI.DAAN.hour
+                    "留连" -> SUXI.LIULIAN.hour
+                    "赤口" -> SUXI.CHIKOU.hour
+                    "小吉" -> SUXI.XIAOJI.hour
+                    "空亡" -> SUXI.KONGWANG.hour
+                    else -> { "双速喜" }
+                }
             }
             "赤口" -> {
                 return when(hour){
@@ -198,35 +236,60 @@ object CommonUtils {
         }
     }
 
-
-    /**
-    * 获取当前小时
-    * */
-    fun getTime(): Int{
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("HH")
-        return current.format(formatter).toInt()
-    }
-
-    /**
-    * 获取十二时辰
-    * */
-    fun getCurrentTime(hour: Int): Int{
-        return when(hour){
-            23 -> 1
-            in 1..2 -> 2
-            in 3..4 -> 3
-            in 5..6 -> 4
-            in 7..8 -> 5
-            in 9..10 -> 6
-            in 11..12 -> 7
-            in 13..14 -> 8
-            in 15..16 -> 9
-            in 17..18 -> 10
-            in 19..20 -> 11
-            in 21..22 -> 12
-            else -> { 1 }
+    fun returnClass(context: Context, list: List<String>): ArrayList<String>{
+        val list = arrayListOf("")
+        var str = ""
+        str = when (dayClass){
+            "大安" -> context.getString(R.string.daan_info)
+            "留连" -> context.getString(R.string.liulian_info)
+            "速喜" -> context.getString(R.string.suxi_info)
+            "赤口" -> context.getString(R.string.chikou_info)
+            "小吉" -> context.getString(R.string.xiaoji_info)
+            "空亡" -> context.getString(R.string.kongwang_info)
+            else ->  ""
         }
+        list.add(0, str)
+        str = when (timeClass){
+            "大安" -> context.getString(R.string.daan_wuxing)
+            "留连" -> context.getString(R.string.liulian_wuxing)
+            "速喜" -> context.getString(R.string.suxi_wuxing)
+            "赤口" -> context.getString(R.string.chikou_wuxing)
+            "小吉" -> context.getString(R.string.xiaoji_wuxing)
+            "空亡" -> context.getString(R.string.kongwang_wuxing)
+            else ->  ""
+        }
+        list.add(1, str)
+        if (list[1].startsWith("甲") && list[2].startsWith("乙")){
+            str = context.getString(R.string.tiangan_jia_yi)
+            list.add(2, str)
+        } else if (list[1].startsWith("乙") && list[2].startsWith("庚")){
+            str = context.getString(R.string.tiangan_yi_geng)
+            list.add(2, str)
+        } else if (list[1].startsWith("丙") && list[2].startsWith("辛")){
+            str = context.getString(R.string.tiangan_bing_xin)
+            list.add(2, str)
+        } else if (list[1].startsWith("丁") && list[2].startsWith("壬")){
+            str = context.getString(R.string.tiangan_ding_ren)
+            list.add(2, str)
+        } else {
+            list.add(2, "")
+        }
+        if (dayClass.equals("大安") && timeClass.equals("留连")){
+            str = context.getString(R.string.liushen_daan_xiaoji);
+            list.add(3, str)
+        } else if (dayClass.equals("大安") && timeClass.equals("小吉")){
+            str = context.getString(R.string.liushen_daan_xiaoji)
+            list.add(3, str)
+        } else if (dayClass.equals("赤口") && timeClass.equals("空亡")){
+            str = context.getString(R.string.liushen_chikou_kongwang)
+            list.add(3, str)
+        } else if (dayClass.equals("速喜")){
+            str = context.getString(R.string.liushen_suxi)
+            list.add(3, str)
+        } else {
+            list.add(3, "")
+        }
+        return list
     }
 
     fun startClass(gender: String){
@@ -236,8 +299,6 @@ object CommonUtils {
             getResult(1, 1)
         }
     }
-
-
 
     fun <T>toJson(date: T): String{
         return Gson().toJson(date)
