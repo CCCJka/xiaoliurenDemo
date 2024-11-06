@@ -29,10 +29,12 @@ object CommonUtils {
         val infobyte = info.split(symbol)
         var stringBuffer = StringBuffer();
         for (str: String in infobyte){
-            if(needControlLength){
-                stringBuffer.append(isStringLongerThan5Char(str, length) + "\n")
-            }else{
-                stringBuffer.append(str + "\n")
+            if (str != ""){
+                if(needControlLength){
+                    stringBuffer.append(isStringLongerThan5Char(str, length) + "\n")
+                }else{
+                    stringBuffer.append(str + "\n")
+                }
             }
         }
         return stringBuffer.toString();
@@ -77,6 +79,25 @@ object CommonUtils {
             "狗" -> return R.drawable.dog
             "猪" -> return R.drawable.pig
             else -> return R.drawable.unknown
+        }
+    }
+
+    /**十二值日*/
+    fun getTwelveDay(info: String): Int{
+        when(info){
+            "危" -> return R.string.wei_day
+            "开" -> return R.string.kai_day
+            "成" -> return R.string.cheng_day
+            "闭" -> return R.string.bi_day
+            "建" -> return R.string.jian_day
+            "收" -> return R.string.shou_day
+            "满" -> return R.string.man_day
+            "平" -> return R.string.ping_day
+            "定" -> return R.string.ding_day
+            "执" -> return R.string.zhi_day
+            "破" -> return R.string.po_day
+            "除" -> return R.string.chu_day
+            else -> return 0
         }
     }
 
@@ -274,16 +295,16 @@ object CommonUtils {
         } else {
             list.add(2, "")
         }
-        if (dayClass.equals("大安") && timeClass.equals("留连")){
+        if (dayClass == "大安" && timeClass == "留连"){
             str = context.getString(R.string.liushen_daan_xiaoji);
             list.add(3, str)
-        } else if (dayClass.equals("大安") && timeClass.equals("小吉")){
+        } else if (dayClass == "大安" && timeClass == "小吉"){
             str = context.getString(R.string.liushen_daan_xiaoji)
             list.add(3, str)
-        } else if (dayClass.equals("赤口") && timeClass.equals("空亡")){
+        } else if (dayClass == "赤口" && timeClass== "空亡"){
             str = context.getString(R.string.liushen_chikou_kongwang)
             list.add(3, str)
-        } else if (dayClass.equals("速喜")){
+        } else if (dayClass == "速喜"){
             str = context.getString(R.string.liushen_suxi)
             list.add(3, str)
         } else {
@@ -293,7 +314,7 @@ object CommonUtils {
     }
 
     fun startClass(gender: String){
-        if (gender.equals("man")){
+        if (gender == "man"){
             getResult(1, 2)
         }else{
             getResult(1, 1)

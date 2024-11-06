@@ -30,6 +30,8 @@ drawable yi
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+string bi_day
+string cheng_day
 string chikou_daan
 string chikou_info
 string chikou_kongwang
@@ -37,6 +39,7 @@ string chikou_liulian
 string chikou_suxi
 string chikou_wuxing
 string chikou_xiaoji
+string chu_day
 string daan_chikou
 string daan_info
 string daan_kongwang
@@ -44,6 +47,9 @@ string daan_liulian
 string daan_suxi
 string daan_wuxing
 string daan_xiaoji
+string ding_day
+string jian_day
+string kai_day
 string kongwang_chikou
 string kongwang_daan
 string kongwang_info
@@ -62,6 +68,10 @@ string liushen_chikou_kongwang
 string liushen_daan_liulian
 string liushen_daan_xiaoji
 string liushen_suxi
+string man_day
+string ping_day
+string po_day
+string shou_day
 string show_detail
 string start_position_chikou
 string start_position_daan
@@ -80,6 +90,7 @@ string tiangan_bing_xin
 string tiangan_ding_ren
 string tiangan_jia_yi
 string tiangan_yi_geng
+string wei_day
 string xiaoji_chikou
 string xiaoji_daan
 string xiaoji_info
@@ -87,6 +98,7 @@ string xiaoji_kongwang
 string xiaoji_liulian
 string xiaoji_suxi
 string xiaoji_wuxing
+string zhi_day
 style Theme.Liuyao
 xml backup_rules
 xml data_extraction_rules

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -42,17 +43,14 @@ fun showdata(responseData: ResponseData){
     Box(modifier = Modifier.fillMaxSize()){
         Image(painter = backgroundPic, contentDescription = null,
             modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillHeight)
-        Column (modifier = Modifier.padding(10.dp),){
-            showCalendar(data = responseData)
-        }
+        showCalendar(data = responseData)
     }
 }
 
 @Composable
 fun showCalendar(data: ResponseData){
-    Column ( modifier = Modifier
-        .verticalScroll(rememberScrollState())){
-        TopInfo(lunarMonthAndDAy = data.LMonth + data.LDay)
+    Column ( modifier = Modifier.verticalScroll(rememberScrollState())){
+        TopInfo(lunarMonthAndDay = data.LMonth + data.LDay)
         middleInfo(data = data)
         bottomInfo(data = data)
         liurenResult(data.TianGanDiZhiYear, data.TianGanDiZhiMonth, data.TianGanDiZhiDay)
@@ -77,7 +75,7 @@ fun showYiOrJi(painter: Painter, info: String){
 fun showCurrentYear(year: String){
     val animalId = CommonUtils.getCurrentYearAnimal(year);
     val painter = painterResource(id = animalId);
-    Column {
+    Column (modifier = Modifier.padding(start = 15.dp, end = 15.dp)){
         Image(painter = painter,
             modifier = Modifier.size(80.dp),
             contentDescription = null)
@@ -89,7 +87,7 @@ fun showCurrentYear(year: String){
 
 @Composable
 fun showSexagenaryCycle(year:String, month:String, day: String){
-    Column {
+    Column (modifier = Modifier.padding(end = 15.dp)){
         Text(text = "天干地支",
             Modifier.align(Alignment.CenterHorizontally))
         Text(text = "年：${year}",
@@ -102,14 +100,14 @@ fun showSexagenaryCycle(year:String, month:String, day: String){
 }
 
 @Composable
-fun TopInfo(lunarMonthAndDAy: String){
+fun TopInfo(lunarMonthAndDay: String){
     Box(modifier = Modifier.fillMaxSize()) {
         Text(text = DateUtils.getCurrentYear(),
             fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(start = 20.dp))
-        Text(text = lunarMonthAndDAy,
+        Text(text = lunarMonthAndDay,
             fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.TopEnd)
@@ -142,15 +140,16 @@ fun middleInfo(data: ResponseData){
         showYiOrJi(painter = ji,  data.Ji)
         showText(title = "胎神", data = CommonUtils.splitChar(',', data.Taishen, true, 5))
     }
+    Row (modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center){
+        showTwelveDay(data = data.JianShen)
+    }
 }
 
 @Composable
 fun bottomInfo(data: ResponseData){
-    Row (
-        Modifier
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically){
+    Row (Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center){
         showSexagenaryCycle(data.TianGanDiZhiYear, data.TianGanDiZhiMonth, data.TianGanDiZhiDay)
         showCurrentYear(data.LYear)
         xiangChongSuiSha(data)
@@ -159,10 +158,21 @@ fun bottomInfo(data: ResponseData){
 
 @Composable
 fun xiangChongSuiSha(data: ResponseData){
-    Column (horizontalAlignment = Alignment.CenterHorizontally,
+    Column (modifier = Modifier.padding(start = 15.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center){
         showText(title = "相冲", data = data.Chong)
         showText(title = "岁煞", data = data.SuiSha)
+    }
+}
+
+@Composable
+fun showTwelveDay(data: String){
+    val day = CommonUtils.getTwelveDay(data)
+    if (day != 0){
+        Text(text = stringResource(id = day))
+    } else{
+        Text(text = "")
     }
 }
 
@@ -173,10 +183,14 @@ fun  liurenResult(year: String, month: String, day: String){
     intent.putExtra("year", year)
     intent.putExtra("month", month)
     intent.putExtra("day", day)
-    Text(text = CommonUtils.getResult(0), modifier = Modifier
-        .clickable { CommonUtils.navigatorActivity(context, intent) }
-        .fillMaxSize(),
-        textAlign = TextAlign.Center)
+    Row (modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 15.dp),
+        horizontalArrangement = Arrangement.Center){
+        Text(text = CommonUtils.getResult(0), modifier = Modifier
+            .clickable { CommonUtils.navigatorActivity(context, intent) },
+            textAlign = TextAlign.Center)
+    }
 }
 
 @Composable
@@ -185,8 +199,7 @@ fun showText(title: String, data: String) {
         Text(
             text = title,
             Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 20.sp
-        )
+            fontSize = 20.sp)
         Text(text = data,
             Modifier.align(Alignment.CenterHorizontally))
     }
@@ -219,7 +232,6 @@ fun DetailView(list: List<String>){
                 textAlign = TextAlign.Center)
         }
         showDetailResult(status, list)
-
     }
 }
 
