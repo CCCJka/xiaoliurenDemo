@@ -313,14 +313,6 @@ object CommonUtils {
         return list
     }
 
-    fun startClass(gender: String){
-        if (gender == "man"){
-            getResult(1, 2)
-        }else{
-            getResult(1, 1)
-        }
-    }
-
     fun <T>toJson(date: T): String{
         return Gson().toJson(date)
     }
